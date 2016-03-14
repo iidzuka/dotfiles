@@ -45,3 +45,6 @@ function static_httpd {
   fi
 }
 
+#nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=./node_modules/.bin:$PATH

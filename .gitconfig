@@ -19,7 +19,7 @@
 [gui]
 	encoding = utf-8
 [core]
-	editor = /usr/local/bin/vim
+	editor = /usr/bin/vim
 	excludesfile = /Users/hiyoshi/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"

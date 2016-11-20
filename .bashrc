@@ -10,7 +10,6 @@ alias vi='vim'
 
 export PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-PS1='[\u \W]\$ '
 
 #git
 source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
@@ -23,9 +22,9 @@ fi
 
 
 if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-  export PS1='[ \h:\w\[\e[0m\] ]\[\e[0;31m\]$(__git_ps1)\[\e[0m\] \$ '
+  export PS1='[ \h:\w\[\e[0m\] ]\[\e[0;31m\]$(__git_ps1)\[\e[0m\] \$ \n'
 else
-  export PS1='[ \[\e[32m\]\u@\h:\w\[\e[0m\]]  '
+  export PS1='[ \[\e[32m\]\u@\h:\w\[\e[0m\]] \$ \n'
 fi
 function static_httpd {
   if type plackup > /dev/null; then

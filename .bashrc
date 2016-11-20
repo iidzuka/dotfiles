@@ -53,3 +53,6 @@ function static_httpd {
 #nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=./node_modules/.bin:$PATH
+
+export NVM_DIR="/Users/hiyoshi/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

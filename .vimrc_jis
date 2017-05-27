@@ -8,8 +8,13 @@ NeoBundle "slim-template/vim-slim"
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+<<<<<<< HEAD
 NeoBundle 'digitaltoad/vim-pug'
 NeoBundle 'miyakogi/seiya.vim'
+=======
+NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'hail2u/vim-css3-syntax'
+>>>>>>> 5bc81cae9919d5315055d8e05dc8ee6006477a3a
 call neobundle#end()
 let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
@@ -27,8 +32,14 @@ set hlsearch
 set background=dark
 
 nmap <Esc><Esc><Esc> :nohlsearch<CR><Esc>
-au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
+autocmd BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
 au BufRead,BufNewFile,BufReadPre *.jade set filetype=pug
+
+set viminfo='50,\"1000,n~/.viminfo
 
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local

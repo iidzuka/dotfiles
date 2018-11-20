@@ -31,22 +31,22 @@ function static_httpd {
     plackup -MPlack::App::Directory -e 'Plack::App::Directory->new(root => ".")->to_app'
   elif type ruby > /dev/null; then
     if ruby -v | grep -qm1 'ruby 2\.'; then
-      ruby -run -e httpd -- --port=5000 .
+      ruby -run -e httpd -- --port=21000 .
     else
-      ruby -rwebrick -e 'WEBrick::HTTPServer.new(:Port => 5000, :DocumentRoot => ".").start'
+      ruby -rwebrick -e 'WEBrick::HTTPServer.new(:Port => 21000, :DocumentRoot => ".").start'
     fi
   elif type python > /dev/null; then
     if python -V 2>&1 | grep -qm1 'Python 3\.'; then
-      python -m http.server 5000
+      python -m http.server 21000
     else
-      python -m SimpleHTTPServer 5000
+      python -m SimpleHTTPServer 21000
     fi
   elif type node > /dev/null; then
-    node -e "var c=require('connect'), d=process.env.PWD; c().use(c.logger()).use(c.static(d)).use(c.directory(d)).listen(5000);"
+    node -e "var c=require('connect'), d=process.env.PWD; c().use(c.logger()).use(c.static(d)).use(c.directory(d)).listen(21000);"
   elif type php > /dev/null && php -v | grep -qm1 'PHP 5\.[45]\.'; then
-    php -S 0.0.0.0:5000
+    php -S 0.0.0.0:21000
   elif type erl > /dev/null; then
-    erl -eval 'inets:start(), inets:start(httpd, [{server_name, "httpd"}, {server_root, "."}, {document_root, "."}, {port, 5000}])'
+    erl -eval 'inets:start(), inets:start(httpd, [{server_name, "httpd"}, {server_root, "."}, {document_root, "."}, {port, 21000}])'
   fi
 }
 
@@ -59,3 +59,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # added by travis gem
 [ -f /Users/iidzuka/.travis/travis.sh ] && source /Users/iidzuka/.travis/travis.sh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

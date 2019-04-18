@@ -8,18 +8,23 @@ alias cl='clear'
 alias grep='grep --color'
 alias vi='vim'
 
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 #git
-source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
-source `brew --prefix git`/etc/bash_completion.d/git-prompt.sh
+source ~/.git-completion.bash
+source ~/.git-prompt.sh
 
 # brew instal bash-completion のための設定
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 
 if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
   export PS1='[ \u@\h:\w\[\e[0m\] ]\[\e[0;31m\]$(__git_ps1)\[\e[0m\]\n\$ '

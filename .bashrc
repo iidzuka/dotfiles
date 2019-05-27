@@ -13,8 +13,8 @@ export PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 #git
-source ~/.git-completion.bash
-source ~/.git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
 
 # brew instal bash-completion のための設定
 if [ -f $(brew --prefix)/etc/bash_completion ]; then

@@ -65,3 +65,15 @@ export NVM_DIR="$HOME/.nvm"
 # added by travis gem
 [ -f /Users/iidzuka/.travis/travis.sh ] && source /Users/iidzuka/.travis/travis.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+
+if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+  export PS1='[ \u@zayin:\w\[\e[0m\] ]\[\e[0;31m\]$(__git_ps1)\[\e[0m\]\n\$ '
+else
+  export PS1='[ \[\e[32m\]\u@\zayin:\w\[\e[0m\]] \$ \n'
+fi
+
+eval "$(anyenv init -)"

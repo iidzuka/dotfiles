@@ -36,5 +36,6 @@
 	interactive = auto
 [init]
 	defaultBranch = main
+	templatedir = ~/.git_template
 [pull]
 	ff = only
